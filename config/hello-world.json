@@ -2,9 +2,19 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/components/context.jsonld",
   "@graph": [
     {
-      "comment": "A complete Hello World instance",
-      "@type": "HelloWorld",
-      "@id": "urn:my-hello-world:core:HelloWorld"
+      "comment": "A default store setup with a memory backend.",
+      "@id": "urn:solid-server:default:ResourceStore_Backend",
+      "@type": "DataAccessorBasedStore",
+      "identifierStrategy": { "@id": "urn:solid-server:default:IdentifierStrategy" },
+      "auxiliaryStrategy": { "@id": "urn:solid-server:default:AuxiliaryStrategy" },
+      "accessor": { "@id": "urn:solid-server:default:MyDataAccessor" },
+      "metadataStrategy": { "@id": "urn:solid-server:default:MetadataStrategy" }
+    },
+    {
+      "comment": "Stores data in memory.",
+      "@id": "urn:solid-server:default:MyDataAccessor",
+      "@type": "MyDataAccessor",
+      "identifierStrategy": { "@id": "urn:solid-server:default:IdentifierStrategy" }
     }
   ]
 }
